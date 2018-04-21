@@ -1,0 +1,15 @@
+
+node_modules
+src/public/bundle.js
+src/public/config.json
+src/public/*.jpg
+src/public/*.jpeg
+src/public/*.png
+src/public/*.eot
+src/public/*.map
+
+### OS ###
+.DS_Store
+
+### Visual Studio code ###
+.vscode/
