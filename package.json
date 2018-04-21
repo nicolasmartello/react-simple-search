@@ -1,0 +1,25 @@
+{
+  "name": "react-simple-search",
+  "version": "1.0.0",
+  "description": "single page application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasmartello/react-simple-search.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": {
+    "name": "martello nicolas (https://www.linkedin.com/in/nicolas-martello-29621514)",
+    "email": "martellonicolas@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasmartello/react-simple-search/issues"
+  },
+  "homepage": "https://github.com/nicolasmartello/react-simple-search#readme"
+}
