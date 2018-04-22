@@ -1,0 +1,25 @@
+/// Convert to REMs function
+ /// @param {Number} target - The value to be converted
+ /// @param {Number} context [$font-size] - The base font size
+ /// @return {Rem} value
+ @function torem($target, $context: $font-size) {
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0rem;
+}
+
+ /// Returns the complementary value of a given color
+ /// @param {color} $color - Color value to get the complementary value from
+ /// @param {number} $percentage [30%] - Percentage of difference between the given color and the complementary value
+ /// @return {color} Complementary color value
+ @function complementary-color($color, $percentage: 30%) {
+  @if type-of($color) != color {
+    @error "Color must be a valid color value. E.g: `#000000`.";
+  }
+  @if type-of($percentage) != number {
+    @error "Percentage must be a percentage value. E.g: `30%`.";
+  }
+
+  $eval: get-luminosity($color);
+
+  @return if($eval == light, shade($color, $percentage), tint($color, $percentage));
+}

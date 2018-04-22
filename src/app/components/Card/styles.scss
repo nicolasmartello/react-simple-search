@@ -1,0 +1,23 @@
+@import '../../assets/styles/settings.scss';
+@import '../../assets/styles/helpers.scss';
+
+.card__wrapper {
+  margin: torem(5px);
+  border: 1px solid $base-color;
+
+  .card__container {
+    position: relative;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+    i {
+      margin: torem(3px);
+      color: $base-color;
+      position: absolute;
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}

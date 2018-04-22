@@ -1,0 +1,15 @@
+button {
+  cursor: pointer;
+}
+
+.button--icon {
+  border: none;
+  background-color: transparent;
+  i {
+    color: $base-color;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  
+}

@@ -15,7 +15,8 @@
     "no-param-reassign": 0,
     "import/prefer-default-export": 0,
     "guard-for-in": 0,
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "react/prefer-stateless-function": false
   },
    "env": {
         "browser": false,

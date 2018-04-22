@@ -1,0 +1,3 @@
+export const SEARCH_GIF = 'SEARCH_GIF';
+export const SEARCH_SET_RESULT = 'SEARCH_SET_RESULT';
+export const SEARCH_SET_ERROR = 'SEARCH_SET_ERROR';

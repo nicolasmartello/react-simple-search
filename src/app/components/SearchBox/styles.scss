@@ -1,0 +1,17 @@
+@import '../../assets/styles/settings.scss';
+@import '../../assets/styles/helpers.scss';
+@import '../../assets/styles/common/button.scss';
+
+.search__container {
+  border: 1px solid $base-color;
+  padding: torem(5px) 0;
+  padding-left: torem(10px);
+  display: flex;
+  min-width: torem(500px);
+  input {
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 0 torem(10px);
+  }
+}

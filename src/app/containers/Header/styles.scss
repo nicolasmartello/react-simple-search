@@ -1,0 +1,10 @@
+@import '../../assets/styles/settings.scss';
+@import '../../assets/styles/helpers.scss';
+
+.header {
+  padding: torem(10px) torem(20px);
+  margin-bottom: torem(5px);
+  background-color: $tertiary-color;
+  width: 100%;
+  box-sizing: border-box;
+}

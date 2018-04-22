@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import './assets/styles/settings.scss';
+@import './assets/styles/helpers.scss';
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: $primary-color;
+  font-size: $font-size;
+  color: $base-color;
+  height: 100%;
+  margin: 0;
+}
+
+input {
+  color: $base-color;
+  font-size: torem(15px);
+  font-family: 'Titillium Web', sans-serif;
+  &::placeholder {
+    color: $secondary-color;
+  }
+}
+
+li {
+  list-style-type: none;
+}

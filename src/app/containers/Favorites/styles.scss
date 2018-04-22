@@ -1,0 +1,21 @@
+@import '../../assets/styles/settings.scss';
+@import '../../assets/styles/helpers.scss';
+
+.favorites {
+  &__wrapper {
+    width: 100%;
+    margin-top: torem(20px);
+  }
+  &__container {
+    width: auto;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    ul {
+      li {
+        display: inline;
+      }
+    }
+  }
+}

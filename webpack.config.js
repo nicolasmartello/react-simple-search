@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 
+// TODO: improve the paths
+
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.js',
+    './src/app/index.jsx',
   ],
   module: {
     rules: [
@@ -11,6 +13,35 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        enforce: 'pre',
+        test: /\.scss/,
+        use: 'import-glob-loader',
+      },
+      {
+        test: /(\.css)$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+        }],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoader: 1,
+              modules: false,
+              camelCase: true,
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
