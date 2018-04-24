@@ -1,11 +1,18 @@
 const webpack = require('webpack');
+const path = require('path');
+const config = require('config');
+const fs = require('fs');
 
-// TODO: improve the paths
+const BUILD_DIR = path.resolve(__dirname, 'public');
+const APP_DIR = path.resolve(__dirname, 'src/app');
+const compileConfigPath = `${BUILD_DIR}/config.json`;
+
+fs.writeFileSync(path.resolve(__dirname, compileConfigPath), JSON.stringify(config));
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/app/index.jsx',
+    `${APP_DIR}/index.jsx`,
   ],
   module: {
     rules: [
@@ -45,11 +52,8 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
-  },
   output: {
-    path: `${__dirname}/public`,
+    path: BUILD_DIR,
     publicPath: '/',
     filename: 'bundle.js',
   },
@@ -57,7 +61,13 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
-    contentBase: './public',
+    contentBase: BUILD_DIR,
     hot: true,
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      settings: compileConfigPath,
+    },
   },
 };

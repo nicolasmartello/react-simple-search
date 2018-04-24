@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import { search } from './search';
-
+import list from './list';
+import favorites from './favorites';
 
 export default combineReducers({
-  search,
+  list,
+  favorites,
 });

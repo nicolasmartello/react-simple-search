@@ -23,10 +23,10 @@ class Card extends React.PureComponent {
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  isInFavorites: PropTypes.bool.isRequired,
   srcImage: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  isInFavorites: PropTypes.bool.isRequired,
 };
 
 export default Card;
