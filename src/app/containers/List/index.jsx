@@ -1,34 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import './styles.scss';
-
-import Data from '../Favorites/data.json';
-
 import Card from '../../components/Card';
 
 class List extends React.Component {
   constructor(props, context) {
     super(props, context);
-    
     this.state = {
-      gifList: Data,
+      list: this.props.list,
     };
   }
 
-  componentDidMount() {
-    // TODO: call list of gifts with limit 10
+  componentWillReceiveProps(nextProps) {
+    this.setState({ list: nextProps.list });
   }
 
   render() {
     return (
       <div className="list__container">
         {(
-          this.state.gifList.map(item => (
-            <div className="list__item">
+          this.state.list.map(item => (
+            <div key={item.id} className="list__item">
               <Card
                 srcImage={item.images.fixed_height_still.url}
                 link={item.embed_url}
-                title={item.title}
                 isInFavorites={item.isInFavorites}
+                title={item.title}
               />
             </div>
           ))
@@ -38,4 +37,4 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default connect(state => ({ list: state.list.result }), null)(List);
