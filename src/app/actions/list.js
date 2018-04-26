@@ -8,12 +8,12 @@ const loadGifList = gifList => ({
   gifList,
 });
 
-const markItemAsFavorite = item => ({
+const updateGifList = item => ({
   type: UPDATE_GIF_LIST,
   item,
 });
 
 export default {
   loadGifList,
-  markItemAsFavorite,
+  updateGifList,
 };

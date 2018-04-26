@@ -10,16 +10,21 @@ const initialState = {
 const favorites = (state = initialState, action) => {
   switch (action.type) {
   case LOAD_FAVORITES_LIST:
-    return { ...state, favorites: action.favorites };
+    return { ...state, list: action.favorites };
   case ADD_ITEM_TO_FAVORITES:
+    if (!state.list) return state;
+    
+    const newList = state.list;
+    newList.push({ ...action.item, is_in_favorites: true });
+    
     return {
       ...state,
-      favorites: state.favorites.push(action.item),
+      list: newList,
     };
   case REMOVE_ITEM_FROM_FAVORITES:
     return {
       ...state,
-      favorites: state.favorites.filter(item => (item.id !== action.item.id)),
+      list: state.list.filter(item => item.id !== action.item.id),
     };
   default:
     return state;

@@ -11,7 +11,7 @@ const list = (state = initialState, action) => {
   switch (action.type) {
   case LOAD_GIF_LIST:
     if (state.favorites) {
-      arrFavorites = state.favorites;
+      arrFavorites = state.favorites.list;
     } else {
       arrFavorites = [];
     }
@@ -19,16 +19,17 @@ const list = (state = initialState, action) => {
       ...state,
       result: action.gifList.map(item => ({
         ...item,
-        isInFavorites: (arrFavorites.findIndex(e => (e.id === item.id)) > -1),
+        is_in_favorites: (arrFavorites.findIndex(e => (e.id === item.id)) > -1),
       })),
     };
   case UPDATE_GIF_LIST:
+    const i = state.result.findIndex(item => item.id === action.item.id);
+    const newList = state.result;
+    
+    newList[i].is_in_favorites = !newList[i].is_in_favorites;
     return {
       ...state,
-      result: state.gifList.map((item) => {
-        if (item.id === state.item.id) return state.item;
-        return item;
-      }),
+      result: newList,
     };
   default:
     return state;

@@ -1,22 +1,21 @@
 @import '../../assets/styles/settings.scss';
 @import '../../assets/styles/helpers.scss';
 
-.card__wrapper {
-  margin: torem(5px);
-  border: 1px solid $base-color;
-
-  .card__container {
-    position: relative;
-    
-    &:hover {
-      opacity: 0.7;
-    }
+.card {
+  &__wrapper {
+    margin: torem(5px);
+    border: 1px solid $base-color;
+  }
+  
+  &__actions {
+    position: absolute;
+    background-color: $base-color;
     i {
       margin: torem(3px);
-      color: $base-color;
-      position: absolute;
+      color: $secondary-color;
+      font-size: torem(15px);
       &:hover {
-        color: $secondary-color;
+        opacity: 0.7;
       }
     }
   }

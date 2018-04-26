@@ -1,22 +1,25 @@
 import React from 'react';
-import './styles.scss';
+import { connect } from 'react-redux';
 
+import './styles.scss';
 import Card from '../../components/Card';
-import Data from './data.json';
+import actions from '../../actions';
 
 class Favorites extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    // TODO: connect with redux and subsribe to favorite-list
     this.state = {
-      favoritesList: Data,
+      items: this.props.favorites.list,
     };
     this.removeFromFavorites = this.removeFromFavorites.bind(this);
   }
 
-  removeFromFavorites(itemId) {
-    // TODO: dispach action
+  componentWillReceiveProps(nextProps) {
+    this.setState({ items: nextProps.favorites.list });
+  }
+
+  removeFromFavorites(item) {
+    this.props.removeItem(item);
   }
 
   render() {
@@ -24,17 +27,20 @@ class Favorites extends React.Component {
       <div className="favorites__wrapper">
         <div className="favorites__container">
           {(
-            this.state.favoritesList.map(item => (
+            this.state.items.map(item => (
               <div
-                key={item.id}
-                onClick={this.removeFromFavorites(item.id)}
+                key={`favorites_${item.id}`}
                 aria-hidden
               >
                 <Card
-                  srcImage={item.images.fixed_width_small_still.url}
+                  srcImage={item.images.fixed_height_small.url}
                   link={item.embed_url}
                   title={item.title}
-                  isInFavorites={item.isInFavorites}
+                  isInFavorites={item.is_in_favorites}
+                  onItemSelected={this.removeFromFavorites}
+                  iconItemSelected="remove_circle_outline"
+                  itemSelected={item}
+                  action="remove"
                 />
               </div>
             ))
@@ -44,5 +50,13 @@ class Favorites extends React.Component {
     );
   }
 }
-
-export default Favorites;
+     
+export default connect(
+  state => ({ favorites: state.favorites }),
+  dispatch => ({
+    removeItem: (item) => {
+      dispatch(actions.Favorites.removeItemFromFavorites(item));
+      dispatch(actions.List.updateGifList(item));
+    },
+  }),
+)(Favorites);
