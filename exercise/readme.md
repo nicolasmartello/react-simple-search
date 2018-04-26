@@ -1,0 +1,4 @@
+# Create a single page application that allows users to search for GIFs.
+
+### User Story:
+When the user visits the application, they can see the top 10 trending GIFs and a search box. When the user types a word on the search box, the application will look for GIFs matching the search criteria. If there is a result, we will show to the user top 20 results and a button on each GIF to add it to their favorites. When clicking on an image, the GIF will open on a new window. Favorites list will be shown in a section above the search box. If the user performs a search and there is a result which is already saved as favorite, the button will have a different style (heart, star, background color, etc, it’s up to you). Users can remove GIFs from their favorite list.
