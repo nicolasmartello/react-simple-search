@@ -57,7 +57,7 @@ const rootReducer = (state = initialState, action) => {
   case REMOVE_ITEM_FROM_FAVORITES:
     return {
       ...state,
-      favorites: { list: state.list.filter(item => item.id !== action.item.id) },
+      favorites: { list: state.favorites.list.filter(item => item.id !== action.item.id) },
     };
 
   default:
