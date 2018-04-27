@@ -10,6 +10,11 @@
   &__actions {
     position: absolute;
     background-color: $base-color;
+    
+    .button--icon {
+      padding: 0px;
+    }
+
     i {
       margin: torem(3px);
       color: $secondary-color;

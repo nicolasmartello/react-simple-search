@@ -1,12 +1,16 @@
 import React from 'react';
-import { describe, it, expect } from 'jest';
-import { render } from 'enzyme';
+import { shallow } from 'enzyme';
+import configureStore from '../../store';
 
 import Favorites from './index';
 
+const store = configureStore();
+
 describe('Favorites Container', () => {
-  it('should render with a default function', () => {
-    const favorites = render(<Favorites />);
-    expect(true).tobe(true);
+  const favorites = shallow(<Favorites store={store} />).dive();
+
+  it('should render correctly', () => {
+    expect(favorites.find('div').length).toEqual(2);
   });
+
 });

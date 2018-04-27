@@ -4,7 +4,7 @@
   "description": "single page application",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./src/app/**",
+    "test": "jest ./src/app/** --watch",
     "start": "webpack-dev-server --content-base ./public --config ./webpack.config.js --mode development"
   },
   "repository": {
@@ -26,6 +26,7 @@
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
@@ -59,5 +60,12 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    },
+    "setupTestFrameworkScriptFile": "./jest-setup.js",
+    "verbose": true
   }
 }

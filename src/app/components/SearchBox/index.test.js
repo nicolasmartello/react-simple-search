@@ -1,18 +1,21 @@
 import React from 'react';
-import { describe, it, expect } from 'jest';
-import { render } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import SearchBox from './index';
 
 describe('SearchBox Component', () => {
-  it('should render with a default function', () => {
-    const searchBox = render(<Searchbox  onClick={() => {}} />);
-    expect(searchBox.find('input').eq(0).attr('value').length).toBeGreaterThan(0);
+  const searchBox = shallow(<SearchBox  onClick={() => {}} />);
+
+  it('should have an input element', () => {
+    expect(searchBox.find('input').length).toEqual(1);
   });
 
-  it('should NOT render status if the prop is missing', () => {
-    const searchBox = render(<Searchbox  />);
-    expect(searchBox.find('input').eq(0).attr('value')).toBeUndefined();
+  it('should have an button element', () => {
+    expect(searchBox.find('button').length).toEqual(1);
   });
 
+  it('should have an icon element', () => {
+    expect(searchBox.find('i').length).toEqual(1);
+  });
+  
 });
