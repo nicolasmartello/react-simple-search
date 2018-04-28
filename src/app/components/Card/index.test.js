@@ -26,7 +26,7 @@ describe('Card component', () => {
   });
 
   it('Component should have two icon elements', () => {
-    expect(card.find('i').length).toEqual(2);
+    expect(card.find('i').length).toEqual(3);
   });
 
   it('Component should have anchor element with url equal to prop', () => {

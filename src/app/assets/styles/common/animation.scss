@@ -1,0 +1,24 @@
+
+.spinner {
+  animation: spinner-circle 1s ease-in-out infinite;
+}
+
+@keyframes spinner-circle-clipper {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(180deg);
+  }
+}
+
+@keyframes spinner-circle {
+  0% {
+      transform: rotate(-180deg);
+  }
+
+  100% {
+      transform: rotate(180deg);
+  }
+}

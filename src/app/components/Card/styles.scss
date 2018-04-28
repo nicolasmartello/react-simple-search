@@ -1,12 +1,37 @@
 @import '../../assets/styles/settings.scss';
 @import '../../assets/styles/helpers.scss';
+@import '../../assets/styles/common/animation.scss';
+
+$transition-duration: 0.25s;
+
+.hidden {
+  display: none;
+}
 
 .card {
   &__wrapper {
     margin: torem(5px);
     border: 1px solid $base-color;
   }
-  
+  &__container {
+    min-width: torem(180px);
+    min-height: torem(100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon--container {
+      position: absolute;
+    }
+
+    img {
+      opacity: 0;
+      &.show {
+        opacity: 1;
+        transition: all $transition-duration/4 ease-in-out;
+      }
+    }
+  }
   &__actions {
     position: absolute;
     background-color: $base-color;
@@ -14,7 +39,7 @@
     .button--icon {
       padding: 0px;
     }
-
+    
     i {
       margin: torem(3px);
       color: $secondary-color;

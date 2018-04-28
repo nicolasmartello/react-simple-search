@@ -9,8 +9,11 @@ class Card extends React.PureComponent {
       favoriteLabel: '',
       showAddButton: true,
       showHeart: true,
+      hiddenSpinner: '',
+      showImage: '',
     };
     this.onItemClick = this.onItemClick.bind(this);
+    this.onFinihsLoadGif = this.onFinihsLoadGif.bind(this);
   }
   
   componentWillMount() {
@@ -27,6 +30,13 @@ class Card extends React.PureComponent {
       showAddButton: false
     });
     this.props.onItemSelected(this.props.itemSelected);
+  }
+
+  onFinihsLoadGif() {
+    this.setState({
+      hiddenSpinner: 'hidden',
+      showImage: 'show',
+    });
   }
 
   render() {
@@ -46,7 +56,13 @@ class Card extends React.PureComponent {
           
         </div>
         <div className="card__container">
-          <img src={this.props.srcImage} alt={this.props.title} />
+          <div className={`icon--container ${this.state.hiddenSpinner}`}><i className="material-icons spinner" >toys</i></div>
+          <img
+            src={this.props.srcImage}
+            alt={this.props.title}
+            onLoad={this.onFinihsLoadGif}
+            className={this.state.showImage}
+          />
         </div>
       </div>
     );
