@@ -35,8 +35,9 @@ const rootReducer = (state = initialState, action) => {
     };
   case UPDATE_GIF_LIST:
     const i = state.list.result.findIndex(item => item.id === action.item.id);
-    const newListResult = state.list.result;
-    
+    if(i < 0) return state;
+
+    const newListResult = [...state.list.result];
     newListResult[i].is_in_favorites = !newListResult[i].is_in_favorites;
     return {
       ...state,
@@ -47,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
   case ADD_ITEM_TO_FAVORITES:
     if (!state.favorites.list) return state;
     
-    const newFavoriteList = state.favorites.list;
+    const newFavoriteList = [...state.favorites.list];
     newFavoriteList.push({ ...action.item, is_in_favorites: true });
     
     return {
