@@ -39,7 +39,7 @@ Single page applications that connect with Giphy API.
 |babel-preset-env|Compiles ES2015+ down to ES5 |
 |config|Define a set of default parameters, and extend them for different deployment environments |
 |postcss-loader|Compile Sass files|
-|prop-types|Is a tool for transforming CSS with JavaScrip|
+|prop-types|Used to document the intended types of properties passed to components. |
 |react|React library|
 |react-dom|React library for DOM rendering |
 |react-redux|Redux library for connecting React components to Redux |
